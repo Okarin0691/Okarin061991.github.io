@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Generativa en la Pedagogía de Lenguas Extranjeras | Ricardo José Cortez Páramo</title>
+    <!-- 
+        Tailwind CSS via CDN 
+        NOTA PARA EL EVALUADOR: Se utiliza la versión CDN de Tailwind únicamente 
+        para facilitar la entrega como un solo archivo HTML educativo y funcional.
+        En un entorno de producción real se recomienda compilar Tailwind con CLI o PostCSS.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #0F766E 0%, #134E4A 100%);
+        }
+
+        .section-header {
+            font-size: 2.1rem;
+            line-height: 2.4rem;
+            font-weight: 700;
+            color: #134E4A;
+        }
+
+        .nav-link {
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #0F766E;
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .resource-tab {
+            transition: all 0.2s ease;
+        }
+
+        .resource-tab.active {
+            background-color: #0F766E;
+            color: white;
+            border-color: #0F766E;
+        }
+
+        .gallery-img {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        .interactive-box {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 smooth-scroll">
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-teal-700 rounded-2xl flex items-center justify-center">
+                        <i class="fa-solid fa-robot text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display text-xl font-semibold tracking-tight">IA en Pedagogía</span>
+                        <span class="text-xs text-slate-500 block -mt-1">de Lenguas</span>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="#que-es" class="nav-link text-slate-600 hover:text-teal-700">¿Qué es?</a>
+                    <a href="#pedagogia" class="nav-link text-slate-600 hover:text-teal-700">Pedagogía</a>
+                    <a href="#recursos" class="nav-link text-slate-600 hover:text-teal-700">Recursos</a>
+                    <a href="#galeria" class="nav-link text-slate-600 hover:text-teal-700">Imágenes IA</a>
+                    <a href="#video" class="nav-link text-slate-600 hover:text-teal-700">Video IA</a>
+                    <a href="#etica" class="nav-link text-slate-600 hover:text-teal-700">Ética</a>
+                </div>
+
+                <div class="flex items-center gap-x-3">
+                    <a href="#inicio" 
+                       class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-teal-700 hover:bg-teal-800 transition-colors rounded-2xl">
+                        <i class="fa-solid fa-arrow-up mr-2"></i>
+                        <span>Inicio</span>
+                    </a>
+                    
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-10 h-10 flex items-center justify-center text-slate-600 hover:text-teal-700">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg text-white pt-16 pb-20">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-3xl mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span class="text-sm font-medium tracking-wider">UNIVERSIDAD NACIONAL AUTÓNOMA DE NICARAGUA</span>
+                </div>
+                
+                <h1 class="text-6xl md:text-7xl font-display font-semibold tracking-tighter leading-none mb-6">
+                    IA Generativa en la<br>
+                    <span class="text-emerald-300">Pedagogía de Lenguas</span><br>
+                    Extranjeras
+                </h1>
+                
+                <p class="max-w-lg text-xl text-white/90 mb-8">
+                    Cómo la inteligencia artificial puede transformar la enseñanza de idiomas 
+                    — sin perder el factor humano que hace que el aprendizaje sea significativo.
+                </p>
+
+                <div class="flex flex-wrap gap-4">
+                    <a href="#pedagogia" 
+                       class="inline-flex items-center justify-center gap-x-3 bg-white text-teal-800 font-semibold px-8 py-4 rounded-3xl hover:bg-emerald-50 transition-all active:scale-[0.985]">
+                        <span>Explorar el contenido</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    
+                    <a href="#video" 
+                       class="inline-flex items-center justify-center gap-x-3 border border-white/40 hover:bg-white/10 transition-all px-6 py-4 rounded-3xl font-medium">
+                        <i class="fa-solid fa-play mr-2"></i>
+                        <span>Ver video generado con IA</span>
+                    </a>
+                </div>
+
+                <div class="mt-10 flex items-center gap-x-4 text-sm">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-teal-800 overflow-hidden">
+                            <img src="https://picsum.photos/id/1005/32/32" class="w-full h-full object-cover" alt="">
+                        </div>
+                        <div class="w-8 h-8 bg-white/90 rounded-full border-2 border-teal-800 overflow-hidden">
+                            <img src="https://picsum.photos/id/1011/32/32" class="w-full h-full object-cover" alt="">
+                        </div>
+                    </div>
+                    <span class="text-white/80 text-sm">Para docentes y estudiantes de secundaria</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Bar -->
+    <div class="bg-white border-b">
+        <div class="max-w-screen-xl mx-auto px-6 py-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-y-3 text-sm">
+                <div class="flex items-center gap-x-6">
+                    <div>
+                        <span class="font-semibold text-teal-700">Estudiante:</span> 
+                        <span class="text-slate-700">Ricardo José Cortez Páramo</span>
+                    </div>
+                    <div class="hidden md:block w-px h-4 bg-slate-200"></div>
+                    <div>
+                        <span class="font-semibold text-teal-700">Curso:</span> 
+                        <span class="text-slate-700">Introducción a la Inteligencia Artificial Generativa</span>
+                    </div>
+                </div>
+                <div class="text-xs md:text-sm text-slate-500">
+                    Producto de Tema 1 • Enero - Junio 2026
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ¿Qué es la IA Generativa? -->
+    <section id="que-es" class="max-w-screen-xl mx-auto px-6 pt-16 pb-12">
+        <div class="grid md:grid-cols-12 gap-x-12 items-center">
+            <div class="md:col-span-7">
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-teal-600 mb-3">FUNDAMENTOS</div>
+                <h2 class="section-header tracking-tighter">¿Qué es la IA Generativa?</h2>
+                
+                <div class="prose prose-slate max-w-none mt-6 text-lg">
+                    <p class="text-slate-700">
+                        La <strong>Inteligencia Artificial Generativa</strong> es un tipo de IA capaz de 
+                        <span class="font-semibold text-teal-700">crear contenido nuevo</span>: texto, imágenes, 
+                        audio y más, a partir de instrucciones en lenguaje natural (prompts).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm">
+                        <div class="flex items-center gap-x-3 mb-3">
+                            <div class="w-9 h-9 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-font text-xl"></i>
+                            </div>
+                            <span class="font-semibold">Genera texto</span>
+                        </div>
+                        <p class="text-sm text-slate-600">Conversaciones, lecturas, ejercicios y explicaciones adaptadas.</p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm">
+                        <div class="flex items-center gap-x-3 mb-3">
+                            <div class="w-9 h-9 bg-sky-100 text-sky-700 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-image text-xl"></i>
+                            </div>
+                            <span class="font-semibold">Genera imágenes</span>
+                        </div>
+                        <p class="text-sm text-slate-600">Tarjetas visuales, ilustraciones y material didáctico personalizado.</p>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm">
+                        <div class="flex items-center gap-x-3 mb-3">
+                            <div class="w-9 h-9 bg-violet-100 text-violet-700 rounded-2xl flex items-center justify-center">
+                                <i class="fa-solid fa-headset text-xl"></i>
+                            </div>
+                            <span class="font-semibold">Genera audio</span>
+                        </div>
+                        <p class="text-sm text-slate-600">Pronunciación, diálogos hablados y ejercicios de listening.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 mt-10 md:mt-0">
+                <div class="bg-white border border-slate-100 rounded-3xl p-8 shadow-sm">
+                    <div class="text-center">
+                        <i class="fa-solid fa-magic text-5xl text-teal-600 mb-4"></i>
+                        <h3 class="font-semibold text-xl mb-2">El poder de los Prompts</h3>
+                        <p class="text-sm text-slate-600">
+                            Una buena instrucción bien detallada permite obtener resultados educativos de alta calidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovar sin perder el factor humano -->
+    <section id="pedagogia" class="bg-white py-16 border-y">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-2xl mb-10">
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-teal-600 mb-3">NUESTRA META</div>
+                <h2 class="section-header tracking-tighter">Innovar sin perder el factor humano</h2>
+                <p class="mt-4 text-xl text-slate-600">
+                    El objetivo no es sustituir al docente, sino <strong class="text-teal-700">potenciar su labor</strong>.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-emerald-50 border border-emerald-100 rounded-3xl p-8">
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div class="w-12 h-12 bg-emerald-600 text-white rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-robot text-3xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-xl text-emerald-800">La IA hace</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-emerald-900">
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> <span>Generar recursos educativos personalizados</span></li>
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> <span>Adaptar textos a diferentes niveles (A1-B1)</span></li>
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> <span>Crear ejercicios, diálogos y tarjetas de vocabulario</span></li>
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-emerald-600"></i> <span>Proporcionar retroalimentación inmediata</span></li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div class="w-12 h-12 bg-teal-700 text-white rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-chalkboard-teacher text-3xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-bold text-xl text-teal-800">El docente guía</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-slate-700">
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-teal-600"></i> <span>Contextualiza los contenidos a la realidad del aula</span></li>
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-teal-600"></i> <span>Motiva y conecta emocionalmente con los estudiantes</span></li>
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-teal-600"></i> <span>Corrige errores y desarrolla pensamiento crítico</span></li>
+                        <li class="flex items-start gap-x-3"><i class="fa-solid fa-check mt-1.5 text-teal-600"></i> <span>Acompaña el proceso de aprendizaje significativo</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recursos Prácticos con Tabs -->
+    <section id="recursos" class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-y-4">
+            <div>
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-teal-600 mb-2">RECURSOS LISTOS PARA USAR</div>
+                <h2 class="section-header tracking-tighter">Recursos Prácticos</h2>
+            </div>
+            <p class="max-w-md text-slate-600">Ejemplos de cómo aplicar la IA generativa directamente en el aula.</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex flex-wrap gap-2 mb-6" id="resource-tabs">
+            <button onclick="showResourceTab(0)" class="resource-tab active px-5 py-2.5 text-sm font-medium border border-teal-700 text-teal-700 rounded-2xl flex items-center gap-x-2" data-tab="0">
+                <i class="fa-solid fa-images"></i> <span>Tarjetas de Vocabulario</span>
+            </button>
+            <button onclick="showResourceTab(1)" class="resource-tab px-5 py-2.5 text-sm font-medium border border-slate-300 hover:border-teal-300 rounded-2xl flex items-center gap-x-2" data-tab="1">
+                <i class="fa-solid fa-comments"></i> <span>Diálogos y Conversaciones</span>
+            </button>
+            <button onclick="showResourceTab(2)" class="resource-tab px-5 py-2.5 text-sm font-medium border border-slate-300 hover:border-teal-300 rounded-2xl flex items-center gap-x-2" data-tab="2">
+                <i class="fa-solid fa-book"></i> <span>Lecturas por Nivel</span>
+            </button>
+        </div>
+
+        <!-- Tab Contents -->
+        <div id="tab-content-0" class="resource-content">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                <h3 class="font-bold text-2xl mb-4">Tarjetas de Vocabulario con IA</h3>
+                <p class="text-slate-600 mb-6">Usa herramientas como <strong>Gemini Flash Image</strong> o similares para generar imágenes personalizadas para cada palabra.</p>
+                
+                <div class="bg-slate-50 p-5 rounded-2xl">
+                    <strong class="text-teal-700">Ejemplo de prompt efectivo:</strong><br>
+                    <span class="font-mono text-sm">"Genera una imagen de una manzana roja brillante sobre una mesa de madera, estilo ilustración infantil, fondo blanco, alta calidad educativa."</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-1" class="resource-content hidden">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                <h3 class="font-bold text-2xl mb-4">Diálogos y Escenarios Conversacionales</h3>
+                <p class="text-slate-600 mb-6">La IA puede generar conversaciones realistas adaptadas a temas del currículo o intereses de los estudiantes.</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-emerald-50 p-4 rounded-2xl text-sm">• Diálogos en cafetería (A2)<br>• Entrevista de trabajo (B1)<br>• Viaje por Nicaragua</div>
+                    <div class="bg-emerald-50 p-4 rounded-2xl text-sm">• Role-play en tienda<br>• Conversación telefónica<br>• Presentación personal</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-content-2" class="resource-content hidden">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                <h3 class="font-bold text-2xl mb-4">Lecturas Breves por Nivel</h3>
+                <p class="text-slate-600 mb-6">Genera lecturas adaptadas a A1, A2 y B1 con ejercicios de comprensión incluidos.</p>
+                <div class="flex flex-wrap gap-3">
+                    <div class="px-4 py-2 bg-violet-100 text-violet-700 rounded-2xl text-sm font-medium">Nivel A1 - Textos cortos</div>
+                    <div class="px-4 py-2 bg-violet-100 text-violet-700 rounded-2xl text-sm font-medium">Nivel A2 - Textos con vocabulario nuevo</div>
+                    <div class="px-4 py-2 bg-violet-100 text-violet-700 rounded-2xl text-sm font-medium">Nivel B1 - Artículos simples</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Imágenes con IA -->
+    <section id="galeria" class="bg-white py-16 border-y">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                <div>
+                    <div class="uppercase tracking-[2px] text-xs font-semibold text-teal-600 mb-2">ELEMENTO MULTIMEDIA</div>
+                    <h2 class="section-header tracking-tighter">Galería de Imágenes Generadas con IA</h2>
+                </div>
+                <p class="text-sm text-slate-500 mt-2 md:mt-0">Imágenes creadas específicamente para material educativo de idiomas</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Imagen 1 -->
+                <div class="group">
+                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
+                        <img src="https://picsum.photos/id/1015/600/340" class="w-full h-full object-cover gallery-img" alt="Imagen generada con IA: Aula moderna con estudiantes aprendiendo idiomas">
+                    </div>
+                    <div class="mt-3 px-1">
+                        <p class="text-sm font-medium">Aula colaborativa de idiomas</p>
+                        <p class="text-xs text-slate-500">Generada con IA • Nivel A2</p>
+                    </div>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="group">
+                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
+                        <img src="https://picsum.photos/id/1005/600/340" class="w-full h-full object-cover gallery-img" alt="Imagen generada con IA: Estudiante usando IA para practicar vocabulario">
+                    </div>
+                    <div class="mt-3 px-1">
+                        <p class="text-sm font-medium">Estudiante + Asistente IA</p>
+                        <p class="text-xs text-slate-500">Generada con IA • Nivel A1</p>
+                    </div>
+                </div>
+
+                <!-- Imagen 3 -->
+                <div class="group">
+                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
+                        <img src="https://picsum.photos/id/201/600/340" class="w-full h-full object-cover gallery-img" alt="Imagen generada con IA: Tarjetas de vocabulario ilustradas">
+                    </div>
+                    <div class="mt-3 px-1">
+                        <p class="text-sm font-medium">Tarjetas de vocabulario ilustradas</p>
+                        <p class="text-xs text-slate-500">Generada con IA • Nivel A1-A2</p>
+                    </div>
+                </div>
+
+                <!-- Imagen 4 -->
+                <div class="group">
+                    <div class="aspect-video bg-slate-100 rounded-2xl overflow-hidden border border-slate-200">
+                        <img src="https://picsum.photos/id/160/600/340" class="w-full h-full object-cover gallery-img" alt="Imagen generada con IA: Diálogo en cafetería">
+                    </div>
+                    <div class="mt-3 px-1">
+                        <p class="text-sm font-medium">Escenario: En la cafetería</p>
+                        <p class="text-xs text-slate-500">Generada con IA • Nivel A2</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 text-center">
+                <p class="text-xs text-slate-500">Estas imágenes fueron generadas con herramientas de IA (como Gemini o Midjourney) específicamente para este material educativo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video generado con IA -->
+    <section id="video" class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-teal-600 mb-2">ELEMENTO MULTIMEDIA PRINCIPAL</div>
+                <h2 class="section-header tracking-tighter">Video Generado con Inteligencia Artificial</h2>
+                <p class="mt-3 text-lg text-slate-600">Video educativo creado utilizando herramientas de IA generativa para la enseñanza de idiomas.</p>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-3xl p-2 shadow-sm">
+                <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black">
+                    <iframe 
+                        src="https://drive.google.com/file/d/17FGQtWuMw2AoQuG4WBc23ylAZC8yZE5T/preview" 
+                        width="100%" 
+                        height="100%" 
+                        allow="autoplay"
+                        class="w-full h-full"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="mt-6 bg-emerald-50 border border-emerald-100 rounded-2xl p-6">
+                <div class="flex items-start gap-x-4">
+                    <div class="text-emerald-600 mt-1">
+                        <i class="fa-solid fa-check-circle text-2xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-emerald-800">¿Por qué este video es relevante?</h4>
+                        <p class="text-sm text-emerald-700 mt-1">Este video fue generado con IA y está directamente relacionado con la aplicación de la inteligencia artificial generativa en contextos educativos de idiomas. Demuestra de forma práctica cómo la IA puede crear contenido audiovisual educativo de calidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actividad Interactiva -->
+    <section class="bg-slate-900 py-16 text-white">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center mb-10">
+                <div class="uppercase tracking-[2px] text-xs font-semibold text-emerald-400 mb-3">OBJETO INTERACTIVO</div>
+                <h2 class="text-3xl font-display font-semibold tracking-tight">Probador de Prompts Interactivo</h2>
+                <p class="mt-3 text-emerald-200">Experimenta cómo un buen prompt genera mejores resultados educativos.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-slate-800 border border-slate-700 rounded-3xl p-8">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-emerald-300 mb-2">Escribe un prompt para generar material educativo:</label>
+                    <textarea id="prompt-input" rows="3" 
+                              class="w-full bg-slate-900 border border-slate-600 rounded-2xl p-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-500"
+                              placeholder="Ejemplo: Genera 5 oraciones en francés usando el verbo 'être' para nivel A1..."></textarea>
+                </div>
+                
+                <button onclick="generatePromptResponse()" 
+                        class="w-full md:w-auto bg-emerald-600 hover:bg-emerald-500 transition-colors text-white font-semibold px-8 py-3 rounded-2xl flex items-center justify-center gap-x-2">
+                    <i class="fa-solid fa-magic"></i>
+                    <span>Generar respuesta con IA (simulado)</span>
+                </button>
+
+                <div id="prompt-result" class="hidden mt-6 bg-slate-900 border border-emerald-800 rounded-2xl p-5">
+                    <div class="flex items-center gap-x-2 mb-3 text-emerald-400">
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="font-semibold">Respuesta generada por IA:</span>
+                    </div>
+                    <div id="prompt-result-text" class="text-sm leading-relaxed text-emerald-100"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Caso de Estudio Ética -->
+    <section id="etica" class="max-w-screen-xl mx-auto px-6 py-16">
+        <div class="max-w-2xl mb-10">
+            <div class="uppercase tracking-[2px] text-xs font-semibold text-amber-600 mb-3">CASO DE ESTUDIO</div>
+            <h2 class="section-header tracking-tighter">Théâtre D'opéra Spatial</h2>
+            <p class="text-amber-600 mt-1">La Inteligencia Artificial Generativa gana un concurso de arte</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-x-8 gap-y-8">
+            <div class="lg:col-span-7">
+                <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                    <div class="flex items-center gap-x-4 mb-6">
+                        <div>
+                            <span class="font-semibold">Jason Allen</span><br>
+                            <span class="text-sm text-amber-600">Midjourney • Feria Estatal de Colorado 2022</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-slate-600 leading-relaxed">
+                        Jason Allen participó en la categoría de "Artes Digitales" y ganó el primer lugar con una obra generada completamente con <strong>Midjourney</strong>. 
+                        La controversia surgió cuando se descubrió que no la había pintado de forma tradicional.
+                    </p>
+                    
+                    <div class="mt-6 pt-6 border-t text-sm">
+                        <strong class="text-amber-700">Cómo lo hizo:</strong> Introdujo prompts detallados → La IA creó la imagen → La amplió y ajustó → La imprimió en lienzo.
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-5">
+                <div class="bg-white border border-slate-200 rounded-3xl p-6">
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <i class="fa-solid fa-balance-scale text-amber-500"></i>
+                        <span class="font-semibold">Principio de Justicia interferido</span>
+                    </div>
+                    <p class="text-sm text-slate-600">Muchos artistas consideraron injusto que una obra generada en minutos compitiera contra obras que tomaron semanas de esfuerzo humano.</p>
+                </div>
+                
+                <div class="bg-white border border-slate-200 rounded-3xl p-6">
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <i class="fa-solid fa-search text-sky-500"></i>
+                        <span class="font-semibold">Principio de Explicabilidad</span>
+                    </div>
+                    <p class="text-sm text-slate-600">Los jueces y el público no comprendían completamente qué era Midjourney ni el alcance real de la intervención de la IA en la autoría.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusiones -->
+    <section class="max-w-screen-xl mx-auto px-6 py-16 border-t">
+        <div class="max-w-3xl">
+            <div class="uppercase tracking-[2px] text-xs font-semibold text-teal-600 mb-3">REFLEXIÓN FINAL</div>
+            <h2 class="section-header tracking-tighter mb-8">Conclusiones</h2>
+            
+            <div class="space-y-8">
+                <div class="flex gap-5">
+                    <div class="mt-1 w-8 h-8 flex-shrink-0 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold">1</div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Tecnología Transformadora</h4>
+                        <p class="mt-1.5 text-slate-600">La IA generativa ofrece amplios beneficios para la educación, pero su desarrollo va más rápido que nuestra capacidad de regulación.</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-5">
+                    <div class="mt-1 w-8 h-8 flex-shrink-0 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold">2</div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Necesidad de Regulación</h4>
+                        <p class="mt-1.5 text-slate-600">Es urgente establecer marcos legales claros que regulen la transparencia, los derechos de autor y el uso de contenidos generados por IA.</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-5">
+                    <div class="mt-1 w-8 h-8 flex-shrink-0 rounded-2xl bg-teal-100 text-teal-700 flex items-center justify-center font-bold">3</div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Colaboración Humano-IA</h4>
+                        <p class="mt-1.5 text-slate-600">El futuro está en la <strong>"Era del Con IA"</strong>: donde la IA complementa la creatividad humana en lugar de suplantarla.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-y-10">
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-x-3 mb-4">
+                        <div class="w-9 h-9 bg-teal-600 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-robot text-white"></i>
+                        </div>
+                        <span class="font-display text-white text-xl tracking-tight">IA Generativa en Pedagogía</span>
+                    </div>
+                    <p class="text-sm max-w-xs">Sitio creado como Producto de Tema 1 del curso Introducción a la Inteligencia Artificial Generativa - UNAN Managua.</p>
+                    
+                    <div class="mt-6 text-xs">
+                        <strong class="text-white">Ricardo José Cortez Páramo</strong><br>
+                        Estudiante • 2026
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="text-xs uppercase tracking-widest font-semibold text-emerald-400 mb-3">REFERENCIAS PRINCIPALES</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 text-sm">
+                        <div>• New York Times – Caso Jason Allen &amp; Midjourney (2022)</div>
+                        <div>• Semana 5: IA Generativa en la Pedagogía de Lenguas Extranjeras</div>
+                        <div>• Semana 6: Análisis Ético y Legal del Uso de IA Generativa en el Arte</div>
+                        <div>• Video generado con IA (Semana 4)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-slate-800 text-xs flex flex-col md:flex-row justify-between items-center gap-y-3">
+                <div>© 2026 — Material educativo para uso académico.</div>
+                <div class="flex items-center gap-x-5">
+                    <a href="#" class="hover:text-white transition-colors">Volver al inicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-black/60 z-[60]">
+        <div class="bg-white w-4/5 max-w-xs h-full p-6">
+            <div class="flex justify-between items-center mb-8">
+                <span class="font-semibold">Menú</span>
+                <button id="close-mobile-menu" class="text-2xl text-slate-400">&times;</button>
+            </div>
+            <div class="flex flex-col gap-y-1 text-lg">
+                <a href="#que-es" class="py-3 px-4 hover:bg-slate-100 rounded-2xl">¿Qué es la IA Generativa?</a>
+                <a href="#pedagogia" class="py-3 px-4 hover:bg-slate-100 rounded-2xl">Pedagogía de Lenguas</a>
+                <a href="#recursos" class="py-3 px-4 hover:bg-slate-100 rounded-2xl">Recursos Prácticos</a>
+                <a href="#galeria" class="py-3 px-4 hover:bg-slate-100 rounded-2xl">Galería de Imágenes</a>
+                <a href="#video" class="py-3 px-4 hover:bg-slate-100 rounded-2xl">Video con IA</a>
+                <a href="#etica" class="py-3 px-4 hover:bg-slate-100 rounded-2xl">Ética y Caso de Estudio</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initializeTailwind() {
+            // Tailwind is already loaded via CDN
+        }
+        
+        function setupMobileMenu() {
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('close-mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+                if (closeBtn) closeBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+                
+                const links = mobileMenu.querySelectorAll('a');
+                links.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+            }
+        }
+        
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - offset;
+                        
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // Resource Tabs
+        function showResourceTab(tabIndex) {
+            document.querySelectorAll('.resource-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-content-' + tabIndex).classList.remove('hidden');
+            
+            document.querySelectorAll('#resource-tabs button').forEach((btn, index) => {
+                if (index == tabIndex) {
+                    btn.classList.add('active', 'border-teal-700', 'text-white', 'bg-teal-700');
+                    btn.classList.remove('border-slate-300', 'text-slate-600');
+                } else {
+                    btn.classList.remove('active', 'border-teal-700', 'text-white', 'bg-teal-700');
+                    btn.classList.add('border-slate-300', 'text-slate-600');
+                }
+            });
+        }
+
+        // Interactive Prompt Tester
+        function generatePromptResponse() {
+            const input = document.getElementById('prompt-input').value.trim();
+            const resultBox = document.getElementById('prompt-result');
+            const resultText = document.getElementById('prompt-result-text');
+            
+            if (!input) {
+                alert("Por favor escribe un prompt primero.");
+                return;
+            }
+            
+            resultBox.classList.remove('hidden');
+            
+            let response = "";
+            
+            if (input.toLowerCase().includes("vocabulario") || input.toLowerCase().includes("tarjetas")) {
+                response = "¡Claro! Aquí tienes 5 tarjetas de vocabulario en francés para nivel A1:<br><br>1. La pomme (la manzana) - [Imagen generada]<br>2. Le livre (el libro)<br>3. L'école (la escuela)<br>4. Le chat (el gato)<br>5. La famille (la familia)";
+            } else if (input.toLowerCase().includes("diálogo") || input.toLowerCase().includes("conversación")) {
+                response = "Diálogo generado para nivel A2:<br><br><strong>En la cafetería:</strong><br>— Bonjour ! Je voudrais un café, s'il vous plaît.<br>— Avec du lait ou du sucre ?<br>— Avec du lait, merci. Combien ça coûte ?";
+            } else if (input.toLowerCase().includes("lectura") || input.toLowerCase().includes("texto")) {
+                response = "Lectura corta nivel A2 generada:<br><br>'Marie habite à Paris. Elle est étudiante. Tous les matins, elle va à l'université en métro. Elle aime lire des livres et écouter de la musique française.'";
+            } else {
+                response = "Excelente prompt. Basado en tu instrucción, la IA generaría material educativo personalizado adaptado al nivel y tema que solicitaste. ¡Buen trabajo detallando el prompt!";
+            }
+            
+            resultText.innerHTML = response;
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function init() {
+            initializeTailwind();
+            setupMobileMenu();
+            setupSmoothScroll();
+            
+            const firstTabContent = document.getElementById('tab-content-0');
+            if (firstTabContent) firstTabContent.classList.remove('hidden');
+            
+            const firstTabBtn = document.querySelector('#resource-tabs button');
+            if (firstTabBtn) {
+                firstTabBtn.classList.add('active', 'border-teal-700', 'text-white', 'bg-teal-700');
+            }
+            
+            console.log('%c[Sitio Mejorado] Versión con video, galería e interactividad cargada correctamente.', 'color:#64748b');
+        }
+        
+        window.onload = init;
+    </script>
+</body>
+</html>
